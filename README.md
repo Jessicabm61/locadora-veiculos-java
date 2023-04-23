@@ -20,4 +20,3 @@ O arquivo `-----------` contém o dump do banco de dados.
 
 A classe `principal` é onde o projeto deve ser executado.
 
-<span style="font-size: 12px;">Este é um texto com tamanho reduzido.</span>
