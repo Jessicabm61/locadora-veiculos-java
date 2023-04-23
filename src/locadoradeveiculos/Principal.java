@@ -49,7 +49,19 @@ public class Principal {
                             new CidadeController().deletarCidade(con);
                             break;
                     case 10:
-                            new CidadeController().updateCidade(con);
+                            new CorController().updateCor(con);
+                            break;
+                    case 11:
+                            new CorController().createCor(con);
+                            break;
+                    case 12:
+                            new CorController().listarCores(con);
+                            break;
+                    case 13:
+                            new CorController().deletarCores(con);
+                            break;
+                    case 14:
+                            new CorController().updateCor(con);
                             break;        
                 }
             }catch(SQLException ex) {
@@ -57,7 +69,7 @@ public class Principal {
                 System.out.println(ex.getMessage());
                 continue;
             }
-        } while(op>0 && op<11);  
+        } while(op>0 && op<100);  
         con.close();
     }    
 
@@ -77,7 +89,11 @@ public class Principal {
         System.out.println("9  - Deletar cidade");
         System.out.println("10 - Editar cidade");
 
-        
+        System.out.println("11 - Registrar nova cor");
+        System.out.println("12 - Exibir todas as cores");
+        System.out.println("13 - Deletar cor");
+        System.out.println("14 - Editar cor");
+
         System.out.println("6 - Registrar Locacao: ");
         System.out.println("7 - Inserir um novo cliente: ");
         System.out.println("8 - Sair");
