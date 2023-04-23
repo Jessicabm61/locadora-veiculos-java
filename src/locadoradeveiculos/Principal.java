@@ -39,13 +39,25 @@ public class Principal {
                     case 6:
                             new FabricanteController().updateFabricante(con);
                             break;
+                    case 7:
+                            new CidadeController().createCidade(con);
+                            break;
+                    case 8:
+                            new CidadeController().listarCidade(con);
+                            break;
+                    case 9:
+                            new CidadeController().deletarCidade(con);
+                            break;
+                    case 10:
+                            new CidadeController().updateCidade(con);
+                            break;        
                 }
             }catch(SQLException ex) {
                 //ex.printStackTrace();
                 System.out.println(ex.getMessage());
                 continue;
             }
-        } while(op>0 && op<8);  
+        } while(op>0 && op<11);  
         con.close();
     }    
 
@@ -54,10 +66,18 @@ public class Principal {
         System.out.println("Informe o número da opção que deseja executar: ");
         System.out.println("1 - Registrar novo veiculo: ");
         System.out.println("2 - Exibir todos os veículos: ");
-        System.out.println("3 - Registrar novo fabricante: ");
-        System.out.println("4 - Exibir todos os fabricantes: ");
-        System.out.println("5 - Deletar fabricante: ");
-        System.out.println("6 - Editar fabricante: ");
+        
+        System.out.println("3  - Registrar novo fabricante");
+        System.out.println("4  - Exibir todos os fabricantes");
+        System.out.println("5  - Deletar fabricante");
+        System.out.println("6  - Editar fabricante");
+        
+        System.out.println("7  - Registrar nova cidade");
+        System.out.println("8  - Exibir todas as cidades");
+        System.out.println("9  - Deletar cidade");
+        System.out.println("10 - Editar cidade");
+
+        
         System.out.println("6 - Registrar Locacao: ");
         System.out.println("7 - Inserir um novo cliente: ");
         System.out.println("8 - Sair");
