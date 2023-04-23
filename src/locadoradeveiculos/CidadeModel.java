@@ -13,14 +13,14 @@ public class CidadeModel {
     
     // Método para inserir uma nova cidade no banco de dados
     public static void create(CidadeBean a, Connection con) throws SQLException {
-        PreparedStatement st;
-        st = con.prepareStatement("INSERT INTO cidade (nome, uf) VALUES (??)");
-        st.setString(1, a.getNome_cidade());
-        st.setString(1, a.getEstado_cidade());
-        st.execute();
-        st.close();
-    }
-
+    PreparedStatement st;
+    st = con.prepareStatement("INSERT INTO cidade (nome, uf) VALUES (?, ?)");
+    st.setString(1, a.getNome_cidade());
+    st.setString(2, a.getEstado_cidade());
+    st.execute();
+    st.close();
+}
+    
      // Método para excluir uma cidade do banco de dados
     public static void deleteCidade(Connection con, int id_cidade) throws SQLException {
         PreparedStatement st;
@@ -29,6 +29,8 @@ public class CidadeModel {
         st.execute();
         st.close();   
     }
+
+    
     
     public static void updateCidade(CidadeBean cb, Connection con) throws SQLException {
     PreparedStatement st;
