@@ -1,4 +1,5 @@
-<small>Trabalho 1 de BAN 2
+<small>Trabalho 1 de BAN 2</small>
+<span style="font-size: 10px;">
 Este é o repositório do Trabalho 1 de BAN 2, contendo as instruções e informações necessárias para sua execução.
 
 Informações da conexão com o BD
@@ -15,4 +16,4 @@ O arquivo ********** contém o dump do banco de dados.
 
 Execução do projeto
 A classe Principal é onde o projeto deve ser executado.
-</small>
+</span>
