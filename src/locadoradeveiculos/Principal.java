@@ -36,6 +36,9 @@ public class Principal {
                     case 5:
                             new FabricanteController().deletarFabricantes(con);
                             break;
+                    case 6:
+                            new FabricanteController().updateFabricante(con);
+                            break;
                 }
             }catch(SQLException ex) {
                 //ex.printStackTrace();
@@ -54,7 +57,7 @@ public class Principal {
         System.out.println("3 - Registrar novo fabricante: ");
         System.out.println("4 - Exibir todos os fabricantes: ");
         System.out.println("5 - Deletar fabricante: ");
-        System.out.println("5 - Mostrar Cliente: ");
+        System.out.println("6 - Editar fabricante: ");
         System.out.println("6 - Registrar Locacao: ");
         System.out.println("7 - Inserir um novo cliente: ");
         System.out.println("8 - Sair");
