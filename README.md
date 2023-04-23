@@ -1,5 +1,6 @@
-<small>Trabalho 1 de BAN 2</small>
-<span style="font-size: 10px;">
+
+<span style="font-size: 5px;">
+  Trabalho 1 de BAN 2
 Este é o repositório do Trabalho 1 de BAN 2, contendo as instruções e informações necessárias para sua execução.
 
 Informações da conexão com o BD
