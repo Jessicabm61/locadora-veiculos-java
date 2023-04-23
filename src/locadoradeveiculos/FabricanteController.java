@@ -22,10 +22,33 @@ public class FabricanteController {
      System.out.println("Fabricante criado com sucesso!!");   
     }
     
-    public void deletarFabricante(Connection con){
+    public void deletarFabricantes(Connection con) {
         Scanner input = new Scanner(System.in);
         System.out.println("Insira o código do fabricante que deseja deletar: ");
         int id_fabricante = input.nextInt();
+
+        try {
+            // Verifica se o id do fabricante informado é válido
+            boolean fabricanteExiste = false;
+            HashSet all = FabricanteModel.listAll(con);
+            Iterator<FabricanteBean> it = all.iterator();
+            while (it.hasNext()) {
+                FabricanteBean fb = it.next();
+                if (fb.getId_fabricante() == id_fabricante) {
+                    fabricanteExiste = true;
+                    break;
+                }
+            }
+
+            if (!fabricanteExiste) {
+                System.out.println("O fabricante informado não existe!");
+            } else {
+                FabricanteModel.deleteFabricante(con, id_fabricante);
+                System.out.println("Fabricante deletado com sucesso!");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }   
     
     /*Chama todos os fabricantes do método listAll do model passando a conexão

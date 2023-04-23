@@ -20,6 +20,15 @@ public class FabricanteModel {
         st.close();
     }
 
+     // Método para excluir um fabricante do banco de dados
+    public static void deleteFabricante(Connection con, int id_fabricante) throws SQLException {
+        PreparedStatement st;
+        st = con.prepareStatement("DELETE FROM fabricante WHERE id_fabricante = ?");
+        st.setInt(1, id_fabricante);
+        st.execute();
+        st.close();
+    }
+    
     //Método que imprime o que está no banco de dados
     static HashSet listAll(Connection con) throws SQLException {
     Statement st; //Usa um statement para acesar o banco

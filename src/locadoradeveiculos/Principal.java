@@ -34,7 +34,7 @@ public class Principal {
                             new FabricanteController().listarFabricantes(con);
                             break;
                     case 5:
-                            new FabricanteController().listarFabricantes(con);
+                            new FabricanteController().deletarFabricantes(con);
                             break;
                 }
             }catch(SQLException ex) {
