@@ -1,18 +1,23 @@
-<small>Trabalho 1 de BAN 2
+## Trabalho 1 de BAN 2
+
 Este é o repositório do Trabalho 1 de BAN 2, contendo as instruções e informações necessárias para sua execução.
 
-Informações da conexão com o BD
-A classe conexao contém as informações para conexão com o banco de dados:
+### Informações da conexão com o BD
 
-driver: endereço do servidor do banco
-user e senha: credenciais para conexão
-url: caminho até o banco de dados
+A classe `conexao` contém as informações para conexão com o banco de dados:
 
-É necessário adicionar a biblioteca do JDBC do PostgreSQL ao projeto. Caso a configuração seja perdida, por favor, adicione-a novamente.
+- `serverName`: endereço do servidor do banco
+- `userName` e `password`: credenciais para conexão
+- `url`: caminho até o banco de dados
 
-Dump do banco de dados
-O arquivo ********** contém o dump do banco de dados.
+A biblioteca do JDBC do PostgreSQL deve ser adicionada ao projeto. Caso a configuração se perca, por favor, adicione-a novamente.
 
-Execução do projeto
-A classe Principal é onde o projeto deve ser executado.
-</small>
+### Dump do banco de dados
+
+O arquivo `-----------` contém o dump do banco de dados.
+
+### Execução do projeto
+
+A classe `principal` é onde o projeto deve ser executado.
+
+<span style="font-size: 12px;">Este é um texto com tamanho reduzido.</span>
