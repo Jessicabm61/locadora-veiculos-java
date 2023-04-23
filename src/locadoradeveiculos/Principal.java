@@ -49,7 +49,7 @@ public class Principal {
                             new CidadeController().deletarCidade(con);
                             break;
                     case 10:
-                            new CorController().updateCor(con);
+                            new CidadeController().updateCidade(con);
                             break;
                     case 11:
                             new CorController().createCor(con);
@@ -62,7 +62,20 @@ public class Principal {
                             break;
                     case 14:
                             new CorController().updateCor(con);
+                            break;
+                    case 15:
+                            new ClienteController().createCliente(con);
+                            break;
+                    case 16:
+                            new ClienteController().listarClientes(con);
+                            break;
+                    case 17:
+                            new ClienteController().deletarCliente(con);
+                            break;
+                    case 18:
+                            new ClienteController().updateCliente(con);
                             break;        
+                            
                 }
             }catch(SQLException ex) {
                 //ex.printStackTrace();
@@ -76,13 +89,13 @@ public class Principal {
     private static int menu() {
         System.out.println(" ");
         System.out.println("Informe o número da opção que deseja executar: ");
-        System.out.println("1 - Registrar novo veiculo: ");
-        System.out.println("2 - Exibir todos os veículos: ");
+        System.out.println(" - Registrar novo veiculo: ");
+        System.out.println(" - Exibir todos os veículos: ");
         
-        System.out.println("3  - Registrar novo fabricante");
-        System.out.println("4  - Exibir todos os fabricantes");
-        System.out.println("5  - Deletar fabricante");
-        System.out.println("6  - Editar fabricante");
+        System.out.println("  - Registrar novo fabricante");
+        System.out.println("  - Exibir todos os fabricantes");
+        System.out.println("  - Deletar fabricante");
+        System.out.println("  - Editar fabricante");
         
         System.out.println("7  - Registrar nova cidade");
         System.out.println("8  - Exibir todas as cidades");
@@ -93,10 +106,15 @@ public class Principal {
         System.out.println("12 - Exibir todas as cores");
         System.out.println("13 - Deletar cor");
         System.out.println("14 - Editar cor");
+        
+        System.out.println("15 - Registrar novo cliente");
+        System.out.println("16 - Exibir todos os clientes");
+        System.out.println("17 - Deletar cliente");
+        System.out.println("18 - Editar cliente");
 
-        System.out.println("6 - Registrar Locacao: ");
-        System.out.println("7 - Inserir um novo cliente: ");
-        System.out.println("8 - Sair");
+        System.out.println(" - Registrar Locacao: ");
+        System.out.println(" - Inserir um novo cliente: ");
+        System.out.println(" - Sair");
         System.out.println("Digite a opção: ");
         Scanner scan = new Scanner(System.in);
         return scan.nextInt();
