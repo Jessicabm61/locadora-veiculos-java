@@ -11,7 +11,7 @@ import java.util.List;
 
 public class ClienteModel {
     
-    // MÃ©todo para inserir um novo cliente no banco de dados
+    // Método para inserir um novo cliente no banco de dados
     public static void create(ClienteBean c, Connection con) throws SQLException {
         PreparedStatement st;
         st = con.prepareStatement("INSERT INTO cliente (nome, cpf, email, rua, bairro, telefone) VALUES (?, ?, ?, ?, ?, ?)");
@@ -21,11 +21,12 @@ public class ClienteModel {
         st.setString(4, c.getRua());
         st.setString(5, c.getBairro());
         st.setString(6, c.getTelefone());
+        st.setInt(7, c.getId_cidade());
         st.execute();
         st.close();
     }
 
-    // MÃ©todo para excluir um cliente do banco de dados
+    // Método para excluir um cliente do banco de dados
     public static void deleteCliente(Connection con, int id_cliente) throws SQLException {
         PreparedStatement st;
         st = con.prepareStatement("DELETE FROM cliente WHERE id_cliente = ?");
@@ -34,7 +35,7 @@ public class ClienteModel {
         st.close();   
     }
 
-    // MÃ©todo para atualizar as informaÃ§Ãµes de um cliente no banco de dados
+    // Método para atualizar as informações de um cliente no banco de dados
     public static void updateCliente(ClienteBean cb, Connection con) throws SQLException {
         PreparedStatement st;
         st = con.prepareStatement("UPDATE cliente SET nome = ?, cpf = ?, email = ?, rua = ?, bairro = ?, telefone = ?");
@@ -48,16 +49,16 @@ public class ClienteModel {
         st.close();
     }
 
-    // MÃ©todo que retorna uma lista de todos os clientes cadastrados no banco de dados
+    // Método que retorna uma lista de todos os clientes cadastrados no banco de dados
         static HashSet listAll(Connection con) throws SQLException {
         Statement st;
         HashSet list = new HashSet();
         st = con.createStatement();
-        String sql = "SELECT id_cliente, nome, cpf, email, rua, bairro, telefone";
+        String sql = "SELECT id_cliente, nome, cpf, email, rua, bairro, telefone, id_cidade";
         ResultSet result = st.executeQuery(sql);
         while(result.next()) {
-            ClienteBean cb = new ClienteBean(result.getString(2), result.getString(3), result.getString(4), result.getString(5),
-            result.getString(6), result.getString(7));
+            ClienteBean cb = new ClienteBean(result.getString(1), result.getString(2), result.getString(3), result.getString(4), result.getString(5),
+            result.getString(6), result.getInt(7));
             list.add(cb);
         }
         return list;

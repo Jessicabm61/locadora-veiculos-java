@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class CidadeController {
 
-    // M√©todo para criar uma nova cidade no banco de dados
+    // MÈtodo para criar uma nova cidade no banco de dados
     public void createCidade(Connection con) throws SQLException {
         Scanner input = new Scanner(System.in);
         System.out.println("Insira o nome da cidade: ");
@@ -25,14 +25,14 @@ public class CidadeController {
         System.out.println("Cidade criada com sucesso!!");   
     }
     
-    //M√©todo para deletar uma cidade do banco de dados
+    //MÈtodo para deletar uma cidade do banco de dados
     public void deletarCidade(Connection con) {
         Scanner input = new Scanner(System.in);
-        System.out.println("Insira o c√≥digo da cidade que deseja deletar: ");
+        System.out.println("Insira o cÛdigo da cidade que deseja deletar: ");
         int id_cidade = input.nextInt();
 
         try {
-            // Verifica se o id da cidade informado √© v√°lido
+            // Verifica se o id da cidade informado È v·lido
             boolean cidadeExiste = false;
             HashSet all = CidadeModel.listAll(con);
             Iterator<CidadeBean> it = all.iterator();
@@ -45,7 +45,7 @@ public class CidadeController {
             }
 
             if (!cidadeExiste) {
-                System.out.println("a cidade informada n√£o existe!");
+                System.out.println("a cidade informada n„o existe!");
             } else {
                 CidadeModel.deleteCidade(con, id_cidade);
                 System.out.println("Cidade deletada com sucesso!");
@@ -55,10 +55,10 @@ public class CidadeController {
         }
     }   
     
-    //M√©todo para editar a cidade
+    //MÈtodo para editar a cidade
     public void updateCidade(Connection con) throws SQLException {
     Scanner input = new Scanner(System.in);
-    System.out.println("Insira o c√≥digo da cidade que deseja atualizar: ");
+    System.out.println("Insira o cÛdigo da cidade que deseja atualizar: ");
     int id_cidade = input.nextInt();
     input.nextLine();
     System.out.println("Insira o novo nome da cidade: ");
@@ -69,7 +69,7 @@ public class CidadeController {
     CidadeModel.updateCidade(cb, con);
     System.out.println("Cidade atualizada com sucesso!!");
 }
-    /*Chama todos as cidades do m√©todo listAll do model passando a conex√£o
+    /*Chama todos as cidades do mÈtodo listAll do model passando a conex„o
     e salva no HashSet all 
     */   
     public void listarCidade(Connection con) throws SQLException {

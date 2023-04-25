@@ -1,15 +1,12 @@
 package locadoradeveiculos;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Scanner;
 
 /**
  *
- * @author JÃ©ssica
+ * @author Jéssica
  */
 public class Principal {
 
@@ -21,12 +18,12 @@ public class Principal {
             op = menu();
             try {
                 switch (op) {
-                    case 1: new veiculoController().createVeiculo(con);
+                    case 1: new VeiculoController().createVeiculo(con);
                             break;
                     
                     case 2: 
                             break;
-                    
+                   
                     case 3:
                             new FabricanteController().createFabricante(con);
                             break;
@@ -83,14 +80,15 @@ public class Principal {
                 continue;
             }
         } while(op>0 && op<100);  
+        
         con.close();
     }    
 
     private static int menu() {
         System.out.println(" ");
-        System.out.println("Informe o nÃºmero da opÃ§Ã£o que deseja executar: ");
+        System.out.println("Informe o número da opção que deseja executar: ");
         System.out.println(" - Registrar novo veiculo: ");
-        System.out.println(" - Exibir todos os veÃ­culos: ");
+        System.out.println(" - Exibir todos os veículos: ");
         
         System.out.println("  - Registrar novo fabricante");
         System.out.println("  - Exibir todos os fabricantes");
@@ -115,7 +113,7 @@ public class Principal {
         System.out.println(" - Registrar Locacao: ");
         System.out.println(" - Inserir um novo cliente: ");
         System.out.println(" - Sair");
-        System.out.println("Digite a opÃ§Ã£o: ");
+        System.out.println("Digite a opção: ");
         Scanner scan = new Scanner(System.in);
         return scan.nextInt();
     }

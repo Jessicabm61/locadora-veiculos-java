@@ -9,26 +9,26 @@ import java.util.Scanner;
 
 /**
  *
- * @author J√©ssica
+ * @author JÈssica
  */
-public class veiculoController {
+public class VeiculoController {
     
     public void createVeiculo(Connection con) throws SQLException{
         Scanner input = new Scanner(System.in);
-        System.out.println("Insira os seguintes dados para criar um ve√≠culo: ");
+        System.out.println("Insira os seguintes dados para criar um veÌculo: ");
         System.out.println("Placa do veiculo: ");
         String placa = input.next();
         System.out.println("Quantidade de portas: ");
         int portas = input.nextInt();
         System.out.println("Ano do veiculo: ");
         int ano = input.nextInt();
-        System.out.println("Tipo de combust√≠vel: ");
+        System.out.println("Tipo de combustÌvel: ");
         char[] combustivel = input.next().toCharArray();
-        System.out.println("Tipo de c√¢mbio: ");
+        System.out.println("Tipo de c‚mbio: ");
         char[] cambio = input.next().toCharArray();
         System.out.println("Tipo de tracao: ");
         char[] tracao = input.next().toCharArray();
-        System.out.println("Observa√ß√£o: ");
+        System.out.println("ObservaÁ„o: ");
         char[] observacao = input.next().toCharArray();
         VeiculoBean vb = new VeiculoBean(placa, portas, ano, combustivel, cambio, tracao, observacao);
         VeiculoModel.create(vb, con);

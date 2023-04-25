@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author JÃ©ssica
+ * @author Jéssica
  */
 public class Conexao {
     private Connection con;
@@ -21,8 +21,8 @@ public class Conexao {
     public Conexao(){
         String driver = "org.postgresql.Driver";
         String user   = "postgres";
-        String senha  = "123";
-        String url    = "jdbc:postgresql://localhost:5432/locadora";
+        String senha  = "admin";
+        String url    = "jdbc:postgresql://localhost:5432/postgres";
         
         try{
             Class.forName(driver);

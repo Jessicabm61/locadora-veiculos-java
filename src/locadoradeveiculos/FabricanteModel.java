@@ -11,7 +11,7 @@ import java.util.List;
 
 public class FabricanteModel {
     
-    // M√©todo para inserir um novo fabricante no banco de dados
+    // MÈtodo para inserir um novo fabricante no banco de dados
     public static void create(FabricanteBean a, Connection con) throws SQLException {
         PreparedStatement st;
         st = con.prepareStatement("INSERT INTO fabricante (nome_fabricante) VALUES (?)");
@@ -20,7 +20,7 @@ public class FabricanteModel {
         st.close();
     }
 
-     // M√©todo para excluir um fabricante do banco de dados
+     // MÈtodo para excluir um fabricante do banco de dados
     public static void deleteFabricante(Connection con, int id_fabricante) throws SQLException {
         PreparedStatement st;
         st = con.prepareStatement("DELETE FROM fabricante WHERE id_fabricante = ?");
@@ -39,9 +39,9 @@ public class FabricanteModel {
     }
 
     
-    //M√©todo que imprime o que est√° no banco de dados
+    //MÈtodo que imprime o que est· no banco de dados
     static HashSet listAll(Connection con) throws SQLException {
-    Statement st; //Usa um statement para acesar o banco
+    Statement st; //Usa um statement para acessar o banco
     HashSet list = new HashSet();
     st = con.createStatement();
     String sql = "SELECT id_fabricante, nome_fabricante FROM fabricante";

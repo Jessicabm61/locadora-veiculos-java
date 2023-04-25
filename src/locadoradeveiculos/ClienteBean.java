@@ -9,15 +9,16 @@ public class ClienteBean {
     private String rua;
     private String bairro;
     private String telefone;
-    private CidadeBean id_cidade;
+    private Integer cidade;
 
-    public ClienteBean(String nome, String cpf, String email, String rua, String bairro, String telefone) {
+    public ClienteBean(String nome, String cpf, String email, String rua, String bairro, String telefone, Integer id_cidade) {
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
         this.rua = rua;
         this.bairro = bairro;
         this.telefone = telefone;
+        this.cidade = cidade;
     }
 
     public int getId_cliente() {
@@ -76,17 +77,18 @@ public class ClienteBean {
         this.telefone = telefone;
     }
 
-    public CidadeBean getId_cidade() {
-        return id_cidade;
+    public Integer getId_cidade() {
+    	return this.cidade;
+     //   return id_cidade;
     }
 
-    public CidadeBean setId_cidade(CidadeBean id_cidade) {
-        this.id_cidade = id_cidade;
+    public void setId_cidade(Integer id_cidade) {
+        this.cidade = id_cidade;
     }
 
-    // Imprime o objeto que est√° na mem√≥ria
+    // Imprime o objeto que est·° na memÛria
     public String toString() {
         return ("ID_Cliente: " + id_cliente + " Nome: " + nome + " CPF: " + cpf + " E-mail: " + email + " Rua: " + rua
-                + " Bairro: " + bairro + " Telefone: " + telefone + " ID_Cidade: " + id_cidade);
+                + " Bairro: " + bairro + " Telefone: " + telefone + " ID_Cidade: " + this.cidade);
     }
 }
