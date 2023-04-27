@@ -1,5 +1,6 @@
 package locadoradeveiculos;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class LocacaoBean {
@@ -7,21 +8,24 @@ public class LocacaoBean {
 	private Date data;
 	private int id_carro;
 	private int id_cliente;
-	private int id_funcionario;
+        
+        
 	
-	public LocacaoBean(int contrato, Date data, int id_carro, int id_cliente, int id_funcionario){
+	public LocacaoBean(int contrato, java.util.Date data, int id_carro, int id_cliente){
 	    this.contrato       = contrato;
 	    this.data           = data;
 	    this.id_carro       = id_carro;
 	    this.id_cliente     = id_cliente;
-	    this.id_funcionario = id_funcionario;
 	}
 	
-	public LocacaoBean(Date data, int id_carro, int id_cliente, int id_funcionario){
+	public LocacaoBean(java.util.Date data, int id_carro, int id_cliente){
 	    this.data           = data;
 	    this.id_carro       = id_carro;
 	    this.id_cliente     = id_cliente;
-	    this.id_funcionario = id_funcionario;
+	}
+        
+	public LocacaoBean(int id_carro){
+	    this.id_carro       = id_carro;
 	}
 	
 	
@@ -48,11 +52,17 @@ public class LocacaoBean {
 	}
 	public void setId_cliente(int id_cliente) {
 		this.id_cliente = id_cliente;
-	}
-	public int getId_funcionario() {
-		return id_funcionario;
-	}
-	public void setId_funcionario(int id_funcionario) {
-		this.id_funcionario = id_funcionario;
 	}	
+        
+	public String toString() {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        String dataFormatada = formatter.format(data);
+        return "Contrato: " + contrato + ", data: " + dataFormatada + ", id_carro: " + id_carro + ", id_cliente:" + id_cliente;
+	}
+
+    String getId_locacao() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+
 }

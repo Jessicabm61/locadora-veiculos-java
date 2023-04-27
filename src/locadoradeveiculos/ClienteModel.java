@@ -11,7 +11,7 @@ import java.util.List;
 
 public class ClienteModel {
     
-    // Método para inserir um novo cliente no banco de dados
+    // Metodo para inserir um novo cliente no banco de dados
     public static void create(ClienteBean c, Connection con) throws SQLException {
         PreparedStatement st;
         st = con.prepareStatement("INSERT INTO cliente (nome, cpf, email, rua, bairro, telefone, id_cidade) VALUES (?, ?, ?, ?, ?, ?, ?)");
@@ -26,7 +26,7 @@ public class ClienteModel {
         st.close();
     }
 
-    // Método para excluir um cliente do banco de dados
+    // Metodo para excluir um cliente do banco de dados
     public static void deleteCliente(Connection con, int id_cliente) throws SQLException {
         PreparedStatement st;
         st = con.prepareStatement("DELETE FROM cliente WHERE id_cliente = ?");
@@ -35,7 +35,7 @@ public class ClienteModel {
         st.close();   
     }
 
-    // Método para atualizar as informações de um cliente no banco de dados
+    // Metodo para atualizar as informacoes de um cliente no banco de dados
     public static void updateCliente(ClienteBean cb, Connection con) throws SQLException {
         PreparedStatement st;
         st = con.prepareStatement("UPDATE cliente SET nome = ?, cpf = ?, email = ?, rua = ?, bairro = ?, telefone = ?, id_cidade = ?");
@@ -50,7 +50,7 @@ public class ClienteModel {
         st.close();
     }
 
-    // Método que retorna uma lista de todos os clientes cadastrados no banco de dados
+    // Metodo que retorna uma lista de todos os clientes cadastrados no banco de dados
         static HashSet listAll(Connection con) throws SQLException {
         Statement st;
         HashSet list = new HashSet();
@@ -58,8 +58,24 @@ public class ClienteModel {
         String sql = "SELECT id_cliente, nome, cpf, email, rua, bairro, telefone, id_cidade FROM cliente";
         ResultSet result = st.executeQuery(sql);
         while(result.next()) {
-            ClienteBean cb = new ClienteBean(result.getInt(1), result.getString(2), result.getString(3), result.getString(4), result.getString(5),
-            result.getString(6), result.getString(7), result.getInt(8));
+            ClienteBean cb = new ClienteBean(result.getInt(1), result.getString(2), result.getString(3), result.getString(4), result.getString(5), result.getString(6),
+            result.getString(7), result.getInt(8));
+            list.add(cb);
+        }
+        return list;
+    }
+        
+        
+    static HashSet listAllWithLocacao(Connection con) throws SQLException {
+        Statement st;
+        HashSet list = new HashSet();
+        st = con.createStatement();
+        String sql = "select c.id_cliente, c.nome, l.id_carro c from cliente c natural join locacao l";
+        ResultSet result = st.executeQuery(sql);
+        while(result.next()) {
+            ClienteBean cb = new ClienteBean(result.getInt(1), result.getString(2));
+            LocacaoBean lb = new LocacaoBean(result.getInt(3));
+            cb.setLocacao(lb);
             list.add(cb);
         }
         return list;

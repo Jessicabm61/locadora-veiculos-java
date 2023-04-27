@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class CorController {
 
-    // Método para criar uma cor no banco de dados
+    // Mï¿½todo para criar uma cor no banco de dados
     public void createCor(Connection con) throws SQLException {
         Scanner input = new Scanner(System.in);
         System.out.println("Insira o nome da cor: ");
@@ -21,7 +21,7 @@ public class CorController {
     //MÃ©todo para deletar uma cor do banco de dados
     public void deletarCores(Connection con) {
         Scanner input = new Scanner(System.in);
-        System.out.println("Insira o código da cor que deseja deletar: ");
+        System.out.println("Insira o codigo da cor que deseja deletar: ");
         int id_cor = input.nextInt();
 
         try {

@@ -1,0 +1,468 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 15.2
+-- Dumped by pg_dump version 15.2
+
+-- Started on 2023-04-27 12:27:28
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- TOC entry 215 (class 1259 OID 16587)
+-- Name: carro; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.carro (
+    id_carro integer NOT NULL,
+    placa character varying(10),
+    portas integer,
+    ano integer,
+    combustivel character varying(30),
+    cambio character varying(30),
+    tracao character varying(30),
+    observacao character varying(100),
+    id_modelo integer NOT NULL,
+    id_cor integer NOT NULL
+);
+
+
+ALTER TABLE public.carro OWNER TO postgres;
+
+--
+-- TOC entry 214 (class 1259 OID 16586)
+-- Name: carro_id_carro_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.carro_id_carro_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.carro_id_carro_seq OWNER TO postgres;
+
+--
+-- TOC entry 3389 (class 0 OID 0)
+-- Dependencies: 214
+-- Name: carro_id_carro_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.carro_id_carro_seq OWNED BY public.carro.id_carro;
+
+
+--
+-- TOC entry 227 (class 1259 OID 16706)
+-- Name: cidade; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.cidade (
+    id_cidade integer NOT NULL,
+    nome character varying(50) NOT NULL,
+    uf character varying(2) NOT NULL
+);
+
+
+ALTER TABLE public.cidade OWNER TO postgres;
+
+--
+-- TOC entry 226 (class 1259 OID 16705)
+-- Name: cidade_id_cidade_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.cidade_id_cidade_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.cidade_id_cidade_seq OWNER TO postgres;
+
+--
+-- TOC entry 3390 (class 0 OID 0)
+-- Dependencies: 226
+-- Name: cidade_id_cidade_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.cidade_id_cidade_seq OWNED BY public.cidade.id_cidade;
+
+
+--
+-- TOC entry 223 (class 1259 OID 16633)
+-- Name: cliente; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.cliente (
+    id_cliente integer NOT NULL,
+    nome character varying(100) NOT NULL,
+    cpf character varying(12) NOT NULL,
+    email character varying(50),
+    rua character varying(30),
+    bairro character varying(30),
+    telefone character varying(12),
+    id_cidade integer NOT NULL
+);
+
+
+ALTER TABLE public.cliente OWNER TO postgres;
+
+--
+-- TOC entry 222 (class 1259 OID 16632)
+-- Name: cliente_id_cliente_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.cliente_id_cliente_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.cliente_id_cliente_seq OWNER TO postgres;
+
+--
+-- TOC entry 3391 (class 0 OID 0)
+-- Dependencies: 222
+-- Name: cliente_id_cliente_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.cliente_id_cliente_seq OWNED BY public.cliente.id_cliente;
+
+
+--
+-- TOC entry 221 (class 1259 OID 16624)
+-- Name: cor; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.cor (
+    id_cor integer NOT NULL,
+    nome_cor character varying(30) NOT NULL
+);
+
+
+ALTER TABLE public.cor OWNER TO postgres;
+
+--
+-- TOC entry 220 (class 1259 OID 16623)
+-- Name: cor_id_cor_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.cor_id_cor_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.cor_id_cor_seq OWNER TO postgres;
+
+--
+-- TOC entry 3392 (class 0 OID 0)
+-- Dependencies: 220
+-- Name: cor_id_cor_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.cor_id_cor_seq OWNED BY public.cor.id_cor;
+
+
+--
+-- TOC entry 217 (class 1259 OID 16601)
+-- Name: fabricante; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.fabricante (
+    id_fabricante integer NOT NULL,
+    nome_fabricante character varying(30) NOT NULL
+);
+
+
+ALTER TABLE public.fabricante OWNER TO postgres;
+
+--
+-- TOC entry 216 (class 1259 OID 16600)
+-- Name: fabricante_id_fabricante_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.fabricante_id_fabricante_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.fabricante_id_fabricante_seq OWNER TO postgres;
+
+--
+-- TOC entry 3393 (class 0 OID 0)
+-- Dependencies: 216
+-- Name: fabricante_id_fabricante_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.fabricante_id_fabricante_seq OWNED BY public.fabricante.id_fabricante;
+
+
+--
+-- TOC entry 225 (class 1259 OID 16662)
+-- Name: locacao; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.locacao (
+    contrato integer NOT NULL,
+    data date NOT NULL,
+    id_carro integer,
+    id_cliente integer
+);
+
+
+ALTER TABLE public.locacao OWNER TO postgres;
+
+--
+-- TOC entry 224 (class 1259 OID 16661)
+-- Name: locacao_contrato_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.locacao_contrato_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.locacao_contrato_seq OWNER TO postgres;
+
+--
+-- TOC entry 3394 (class 0 OID 0)
+-- Dependencies: 224
+-- Name: locacao_contrato_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.locacao_contrato_seq OWNED BY public.locacao.contrato;
+
+
+--
+-- TOC entry 219 (class 1259 OID 16610)
+-- Name: modelo; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.modelo (
+    id_modelo integer NOT NULL,
+    nome_modelo character varying(30)
+);
+
+
+ALTER TABLE public.modelo OWNER TO postgres;
+
+--
+-- TOC entry 218 (class 1259 OID 16609)
+-- Name: modelo_id_modelo_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.modelo_id_modelo_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.modelo_id_modelo_seq OWNER TO postgres;
+
+--
+-- TOC entry 3395 (class 0 OID 0)
+-- Dependencies: 218
+-- Name: modelo_id_modelo_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.modelo_id_modelo_seq OWNED BY public.modelo.id_modelo;
+
+
+--
+-- TOC entry 3203 (class 2604 OID 16590)
+-- Name: carro id_carro; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.carro ALTER COLUMN id_carro SET DEFAULT nextval('public.carro_id_carro_seq'::regclass);
+
+
+--
+-- TOC entry 3209 (class 2604 OID 16709)
+-- Name: cidade id_cidade; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cidade ALTER COLUMN id_cidade SET DEFAULT nextval('public.cidade_id_cidade_seq'::regclass);
+
+
+--
+-- TOC entry 3207 (class 2604 OID 16636)
+-- Name: cliente id_cliente; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cliente ALTER COLUMN id_cliente SET DEFAULT nextval('public.cliente_id_cliente_seq'::regclass);
+
+
+--
+-- TOC entry 3206 (class 2604 OID 16627)
+-- Name: cor id_cor; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cor ALTER COLUMN id_cor SET DEFAULT nextval('public.cor_id_cor_seq'::regclass);
+
+
+--
+-- TOC entry 3204 (class 2604 OID 16604)
+-- Name: fabricante id_fabricante; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.fabricante ALTER COLUMN id_fabricante SET DEFAULT nextval('public.fabricante_id_fabricante_seq'::regclass);
+
+
+--
+-- TOC entry 3208 (class 2604 OID 16665)
+-- Name: locacao contrato; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.locacao ALTER COLUMN contrato SET DEFAULT nextval('public.locacao_contrato_seq'::regclass);
+
+
+--
+-- TOC entry 3205 (class 2604 OID 16613)
+-- Name: modelo id_modelo; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.modelo ALTER COLUMN id_modelo SET DEFAULT nextval('public.modelo_id_modelo_seq'::regclass);
+
+
+--
+-- TOC entry 3211 (class 2606 OID 16594)
+-- Name: carro carro_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.carro
+    ADD CONSTRAINT carro_pkey PRIMARY KEY (id_carro);
+
+
+--
+-- TOC entry 3223 (class 2606 OID 16711)
+-- Name: cidade cidade_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cidade
+    ADD CONSTRAINT cidade_pkey PRIMARY KEY (id_cidade);
+
+
+--
+-- TOC entry 3219 (class 2606 OID 16638)
+-- Name: cliente cliente_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cliente
+    ADD CONSTRAINT cliente_pkey PRIMARY KEY (id_cliente);
+
+
+--
+-- TOC entry 3217 (class 2606 OID 16631)
+-- Name: cor cor_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cor
+    ADD CONSTRAINT cor_pkey PRIMARY KEY (id_cor);
+
+
+--
+-- TOC entry 3213 (class 2606 OID 16608)
+-- Name: fabricante fabricante_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.fabricante
+    ADD CONSTRAINT fabricante_pkey PRIMARY KEY (id_fabricante);
+
+
+--
+-- TOC entry 3221 (class 2606 OID 16667)
+-- Name: locacao locacao_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.locacao
+    ADD CONSTRAINT locacao_pkey PRIMARY KEY (contrato);
+
+
+--
+-- TOC entry 3215 (class 2606 OID 16617)
+-- Name: modelo modelo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.modelo
+    ADD CONSTRAINT modelo_pkey PRIMARY KEY (id_modelo);
+
+
+--
+-- TOC entry 3224 (class 2606 OID 16695)
+-- Name: carro carro_id_cor_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.carro
+    ADD CONSTRAINT carro_id_cor_fkey FOREIGN KEY (id_cor) REFERENCES public.cor(id_cor);
+
+
+--
+-- TOC entry 3225 (class 2606 OID 16700)
+-- Name: carro carro_id_modelo_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.carro
+    ADD CONSTRAINT carro_id_modelo_fkey FOREIGN KEY (id_modelo) REFERENCES public.modelo(id_modelo);
+
+
+--
+-- TOC entry 3226 (class 2606 OID 16668)
+-- Name: locacao locacao_id_carro_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.locacao
+    ADD CONSTRAINT locacao_id_carro_fkey FOREIGN KEY (id_carro) REFERENCES public.carro(id_carro);
+
+
+--
+-- TOC entry 3227 (class 2606 OID 16673)
+-- Name: locacao locacao_id_cliente_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.locacao
+    ADD CONSTRAINT locacao_id_cliente_fkey FOREIGN KEY (id_cliente) REFERENCES public.cliente(id_cliente);
+
+
+-- Completed on 2023-04-27 12:27:29
+
+--
+-- PostgreSQL database dump complete
+--
+

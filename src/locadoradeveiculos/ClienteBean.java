@@ -10,6 +10,7 @@ public class ClienteBean {
     private String bairro;
     private String telefone;
     private Integer cidade;
+    private LocacaoBean locacao;
 
     public ClienteBean(String nome, String cpf, String email, String rua, String bairro, String telefone, Integer id_cidade) {
         this.nome = nome;
@@ -23,7 +24,7 @@ public class ClienteBean {
     
     public ClienteBean(int id_cliente, String nome, String cpf, String email, String rua, String bairro, String telefone, Integer id_cidade) {
         this.id_cliente = id_cliente;
-    	this.nome = nome;
+        this.nome = nome;
         this.cpf = cpf;
         this.email = email;
         this.rua = rua;
@@ -31,7 +32,14 @@ public class ClienteBean {
         this.telefone = telefone;
         this.cidade = id_cidade;
     }
-
+    
+    
+    
+    public ClienteBean(int id_cliente, String nome) {
+        this.id_cliente = id_cliente;
+        this.nome = nome;
+    }
+    
     public int getId_cliente() {
         return id_cliente;
     }
@@ -90,16 +98,29 @@ public class ClienteBean {
 
     public Integer getId_cidade() {
     	return this.cidade;
-     //   return id_cidade;
     }
 
     public void setId_cidade(Integer id_cidade) {
         this.cidade = id_cidade;
     }
 
-    // Imprime o objeto que está¡ na memória
+    public LocacaoBean getLocacao() {
+        return locacao;
+    }
+    
+    public void setLocacao(LocacaoBean lb) {
+    this.locacao = lb;
+    }
+    
+    // Imprime o objeto que esta na memoria
     public String toString() {
         return ("ID_Cliente: " + id_cliente + " Nome: " + nome + " CPF: " + cpf + " E-mail: " + email + " Rua: " + rua
                 + " Bairro: " + bairro + " Telefone: " + telefone + " ID_Cidade: " + this.cidade);
     }
+    
+    public String toStringDetails() {
+    return ("Carros Locados: " + locacao.getId_carro() + " ID_Cliente: " + id_cliente + " Nome: " + nome);
+    }
+
+
 }

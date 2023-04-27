@@ -21,6 +21,11 @@ public class FabricanteBean {
      public int getId_fabricante() {
         return id_fabricante;
     }
+     
+     public void setId_fabricante(int id_fabricante) {
+         this.id_fabricante = id_fabricante;
+     }
+     
     
     public String getNome_fabricante() {
         return nome_fabricante;
