@@ -79,6 +79,8 @@ public class Principal {
                     case 20:
                     		new VeiculoController().listarVeiculoPorModelo(con);
                     		break;
+                    case 21:
+                    		new ModeloController().listModeloPorFabricante(con);
                     		
                 }
             }catch(SQLException ex) {
@@ -132,6 +134,7 @@ public class Principal {
         System.out.println("RELATORIOS");
         System.out.println("19 - Exibir todos os clientes e seus respectivos carros locados");
         System.out.println("20 - Veiculos por modelo");
+        System.out.println("21 - Modelos por fabricante");
         
         System.out.println("0 - Sair");
         System.out.println("Digite a opção: ");

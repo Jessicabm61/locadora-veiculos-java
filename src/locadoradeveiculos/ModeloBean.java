@@ -52,4 +52,11 @@ public class ModeloBean {
 		this.fb = fb;
 	}
     
+	public String toStringDetails() {
+	    return "Modelo{ ID Modelo=" + id_modelo +
+	            ", nome='" + nome_modelo + '\'' +
+	            ", fabricante='" + fb.getId_fabricante() + '\'' +
+	            ", nome fabricante='" + fb.getNome_fabricante() + '\'' +
+	            '}';		
+	}
 }

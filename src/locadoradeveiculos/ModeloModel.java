@@ -39,4 +39,20 @@ public class ModeloModel {
         }
         return list;
     }
+    
+    static HashSet listAllFilterFabricante(Connection con, String fabricante) throws SQLException {
+        Statement st; //Usa um statement para acessar o banco
+        HashSet list = new HashSet();
+        st = con.createStatement();
+        String sql = "select id_modelo, nome_modelo, fabricante.id_fabricante, fabricante.nome_fabricante from modelo\r\n"
+        		+ "join fabricante on fabricante.id_fabricante = modelo.id_fabricante and fabricante.nome_fabricante = '" + fabricante + "'";
+        ResultSet result = st.executeQuery(sql); //retorna uma lista e salva no Resultset result
+        while(result.next()) {
+            ModeloBean mb = new ModeloBean(result.getInt(1), result.getString(2)); 
+            FabricanteBean fb = new FabricanteBean(result.getInt(3), result.getString(4));
+            mb.setFb(fb);
+            list.add(mb);            
+        }
+        return list;	
+    }
 }

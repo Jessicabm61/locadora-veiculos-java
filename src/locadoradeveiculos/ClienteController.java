@@ -23,23 +23,33 @@ public class ClienteController {
         String bairro = input.nextLine();
         System.out.println("Insira o telefone do cliente: ");
         String telefone = input.nextLine();
-        System.out.println("Insira a cidade  do cliente: ");
-        String cidade = input.nextLine(); 
+        int cidade = 0;
+        while (true) {
+            System.out.println("Insira o código cidade do cliente: ");
+            String inputStr = input.nextLine();
+
+            try {
+                cidade = Integer.parseInt(inputStr);
+                break; // Se a entrada é válida, sair do loop
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada inválida. Insira um valor inteiro.");
+            }
+        }
         
         
-        ClienteBean cb = new ClienteBean(nome, cpf, email, rua, bairro, telefone, Integer.parseInt(cidade));
+        ClienteBean cb = new ClienteBean(nome, cpf, email, rua, bairro, telefone, cidade);
         ClienteModel.create(cb, con);
         System.out.println("Cliente criado com sucesso!!");
     }
 
-    // Método para deletar um cliente do banco de dados
+    // Metodo para deletar um cliente do banco de dados
     public void deletarCliente(Connection con) {
         Scanner input = new Scanner(System.in);
-        System.out.println("Insira o código do cliente que deseja deletar: ");
+        System.out.println("Insira o codigo do cliente que deseja deletar: ");
         int id_cliente = input.nextInt();
 
         try {
-            // Verifica se o id do cliente informado é válido
+            // Verifica se o id do cliente informado eh valido
             boolean clienteExiste = false;
             HashSet all = ClienteModel.listAll(con);
             Iterator<ClienteBean> it = all.iterator();
@@ -52,7 +62,7 @@ public class ClienteController {
             }
 
             if (!clienteExiste) {
-                System.out.println("O cliente informado não existe!");
+                System.out.println("O cliente informado no existe!");
             } else {
                 ClienteModel.deleteCliente(con, id_cliente);
                 System.out.println("Cliente deletado com sucesso!");
@@ -62,10 +72,10 @@ public class ClienteController {
         }
     }
 
-    // Método para atualizar um cliente do banco de dados
+    // Metodo para atualizar um cliente do banco de dados
     public void updateCliente(Connection con) throws SQLException {
         Scanner input = new Scanner(System.in);
-        System.out.println("Insira o código do cliente que deseja atualizar: ");
+        System.out.println("Insira o cï¿½digo do cliente que deseja atualizar: ");
         int id_cliente = input.nextInt();
         input.nextLine(); // Limpa o buffer do teclado
         System.out.println("Insira o novo nome do cliente: ");
@@ -88,9 +98,6 @@ public class ClienteController {
         System.out.println("Cliente atualizado com sucesso!");
     }
     
-    /*Chama todas as cores do método listAll do model passando a conexÃ£o
-    e salva no HashSet all 
-    */   
     public void listarClientes(Connection con) throws SQLException {
         HashSet all = ClienteModel.listAll(con); 
         Iterator<ClienteBean> it = all.iterator();
@@ -98,5 +105,14 @@ public class ClienteController {
             System.out.println(it.next().toString());
         }
     }
+    
+    void listarClientesLocacao(Connection con) throws SQLException {
+        HashSet all = ClienteModel.listAllWithLocacao(con);
+        Iterator<ClienteBean> it = all.iterator();
+        while(it.hasNext()) {
+            System.out.println(it.next().toStringDetails());
+        }
+    }
+    
 
 }    
