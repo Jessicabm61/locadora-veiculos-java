@@ -18,7 +18,7 @@ public class ClienteBean {
         this.rua = rua;
         this.bairro = bairro;
         this.telefone = telefone;
-        this.cidade = cidade;
+        this.cidade = id_cidade;
     }
 
     public int getId_cliente() {

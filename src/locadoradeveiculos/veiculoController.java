@@ -5,6 +5,8 @@ package locadoradeveiculos;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Scanner;
 
 /**
@@ -23,15 +25,27 @@ public class VeiculoController {
         System.out.println("Ano do veiculo: ");
         int ano = input.nextInt();
         System.out.println("Tipo de combustível: ");
-        char[] combustivel = input.next().toCharArray();
+        String combustivel = input.next();
         System.out.println("Tipo de câmbio: ");
-        char[] cambio = input.next().toCharArray();
+        String cambio = input.next();
         System.out.println("Tipo de tracao: ");
-        char[] tracao = input.next().toCharArray();
+        String tracao = input.next();
         System.out.println("Observação: ");
-        char[] observacao = input.next().toCharArray();
-        VeiculoBean vb = new VeiculoBean(placa, portas, ano, combustivel, cambio, tracao, observacao);
+        String observacao = input.next();
+        System.out.println("Modelo: ");
+        String modelo = input.next();
+        System.out.println("Cor: ");
+        String cor = input.next();
+        VeiculoBean vb = new VeiculoBean(placa, portas, ano, combustivel, cambio, tracao, observacao, Integer.parseInt(modelo), Integer.parseInt(cor));
         VeiculoModel.create(vb, con);
         System.out.println("Veiculo Registrado com Sucesso");
+    }
+    
+    public void listarVeiculos(Connection con) throws SQLException {
+        HashSet all = VeiculoModel.listAll(con); 
+        Iterator<VeiculoBean> it = all.iterator();
+        while(it.hasNext()) {
+             System.out.println(it.next().toString());
+        }
     }
 }

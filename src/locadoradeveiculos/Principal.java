@@ -21,9 +21,9 @@ public class Principal {
                     case 1: new VeiculoController().createVeiculo(con);
                             break;
                     
-                    case 2: 
-                            break;
-                   
+                    case 2: new VeiculoController().listarVeiculos(con);
+                            break;      
+                    
                     case 3:
                             new FabricanteController().createFabricante(con);
                             break;
@@ -71,7 +71,8 @@ public class Principal {
                             break;
                     case 18:
                             new ClienteController().updateCliente(con);
-                            break;        
+                            break;  
+                            
                             
                 }
             }catch(SQLException ex) {
@@ -87,13 +88,13 @@ public class Principal {
     private static int menu() {
         System.out.println(" ");
         System.out.println("Informe o número da opção que deseja executar: ");
-        System.out.println(" - Registrar novo veiculo: ");
-        System.out.println(" - Exibir todos os veículos: ");
+        System.out.println("1 - Registrar novo veiculo: ");
+        System.out.println("2 - Exibir todos os veículos: ");
         
-        System.out.println("  - Registrar novo fabricante");
-        System.out.println("  - Exibir todos os fabricantes");
-        System.out.println("  - Deletar fabricante");
-        System.out.println("  - Editar fabricante");
+        System.out.println("3  - Registrar novo fabricante");
+        System.out.println("4  - Exibir todos os fabricantes");
+        System.out.println("5  - Deletar fabricante");
+        System.out.println("6  - Editar fabricante");
         
         System.out.println("7  - Registrar nova cidade");
         System.out.println("8  - Exibir todas as cidades");
@@ -110,9 +111,8 @@ public class Principal {
         System.out.println("17 - Deletar cliente");
         System.out.println("18 - Editar cliente");
 
-        System.out.println(" - Registrar Locacao: ");
-        System.out.println(" - Inserir um novo cliente: ");
-        System.out.println(" - Sair");
+        System.out.println("19 - Registrar Locacao: ");
+        System.out.println("20 - Sair");
         System.out.println("Digite a opção: ");
         Scanner scan = new Scanner(System.in);
         return scan.nextInt();

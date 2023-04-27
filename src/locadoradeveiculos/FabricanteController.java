@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class FabricanteController {
 
-    // Método para criar um fabricante no banco de dados
+    // Metodo para criar um fabricante no banco de dados
     public void createFabricante(Connection con) throws SQLException {
         Scanner input = new Scanner(System.in);
         System.out.println("Insira o nome do fabricante: ");
@@ -22,14 +22,14 @@ public class FabricanteController {
      System.out.println("Fabricante criado com sucesso!!");   
     }
     
-    //Método para deletar um fabricante do banco de dados
+    //Metodo para deletar um fabricante do banco de dados
     public void deletarFabricantes(Connection con) {
         Scanner input = new Scanner(System.in);
         System.out.println("Insira o código do fabricante que deseja deletar: ");
         int id_fabricante = input.nextInt();
 
         try {
-            // Verifica se o id do fabricante informado é válido
+            // Verifica se o id do fabricante informado e valido
             boolean fabricanteExiste = false;
             HashSet all = FabricanteModel.listAll(con);
             Iterator<FabricanteBean> it = all.iterator();
@@ -42,7 +42,7 @@ public class FabricanteController {
             }
 
             if (!fabricanteExiste) {
-                System.out.println("O fabricante informado não existe!");
+                System.out.println("O fabricante informado n�o existe!");
             } else {
                 FabricanteModel.deleteFabricante(con, id_fabricante);
                 System.out.println("Fabricante deletado com sucesso!");
@@ -52,10 +52,10 @@ public class FabricanteController {
         }
     }   
     
-    //Método para editar o fabricante
+    //M�todo para editar o fabricante
     public void updateFabricante(Connection con) throws SQLException {
     Scanner input = new Scanner(System.in);
-    System.out.println("Insira o código do fabricante que deseja atualizar: ");
+    System.out.println("Insira o c�digo do fabricante que deseja atualizar: ");
     int id_fabricante = input.nextInt();
     input.nextLine();
     System.out.println("Insira o novo nome do fabricante: ");
