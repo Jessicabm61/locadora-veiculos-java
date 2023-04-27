@@ -14,7 +14,7 @@ A biblioteca do JDBC do PostgreSQL deve ser adicionada ao projeto. Caso a config
 
 ### Dump do banco de dados
 
-O arquivo `-----------` contém o dump do banco de dados.
+O arquivo `backup/backup_locadora` contém o dump do banco de dados.
 
 ### Execução do projeto
 

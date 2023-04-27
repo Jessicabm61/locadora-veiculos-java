@@ -34,6 +34,18 @@ public class ModeloController {
              System.out.println(it.next().toString());
         }
     }
+    
+    void listModeloPorFabricante(Connection con) throws SQLException {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Filtro pelo fabricante: ");
+        String fabricante = input.next();
+        
+        HashSet all = ModeloModel.listAllFilterFabricante(con, fabricante);
+        Iterator<ModeloBean> it = all.iterator();
+        while(it.hasNext()) {
+            System.out.println(it.next().toStringDetails());
+        }
+    }
 }
 
 
