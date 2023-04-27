@@ -11,7 +11,7 @@ import java.util.List;
 
 public class CorModel {
     
-    // M√©todo para inserir uma nova cor no banco de dados
+    // MÈtodo para inserir uma nova cor no banco de dados
     public static void create(CorBean c, Connection con) throws SQLException {
         PreparedStatement st;
         st = con.prepareStatement("INSERT INTO cor (nome_cor) VALUES (?)");
@@ -20,7 +20,7 @@ public class CorModel {
         st.close();
     }
 
-     // M√©todo para excluir uma cor do banco de dados
+     // MÈtodo para excluir uma cor do banco de dados
     public static void deleteCor(Connection con, int id_cor) throws SQLException {
         PreparedStatement st;
         st = con.prepareStatement("DELETE FROM cor WHERE id_cor = ?");
@@ -39,7 +39,7 @@ public class CorModel {
     }
 
     
-    //M√©todo que imprime o que est√° no banco de dados
+    //MÈtodo que imprime o que est· no banco de dados
     static HashSet listAll(Connection con) throws SQLException {
         Statement st; //Usa um statement para acessar o banco
         HashSet list = new HashSet();

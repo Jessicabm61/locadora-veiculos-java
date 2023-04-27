@@ -5,10 +5,35 @@
  */
 package locadoradeveiculos;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Scanner;
+
 /**
  *
- * @author Jéssica
+ * @author Jessica
  */
 public class ModeloController {
+	
+    // Metodo para criar um modelo no banco de dados
+    public void createModelo(Connection con) throws SQLException {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Insira o nome do modelo: ");
+        String nome_modelo = input.nextLine();
+        ModeloBean mb = new ModeloBean(nome_modelo);
+        ModeloModel.create(mb, con);
+        System.out.println("Modelo criado com sucesso!!");   
+    }
     
+    public void listAll(Connection con) throws SQLException {
+        HashSet all = ModeloModel.listAll(con); 
+        Iterator<ModeloBean> it = all.iterator();
+        while(it.hasNext()) {
+             System.out.println(it.next().toString());
+        }
+    }
 }
+
+

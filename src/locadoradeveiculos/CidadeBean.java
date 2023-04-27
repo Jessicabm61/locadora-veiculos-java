@@ -59,7 +59,7 @@ public class CidadeBean {
         this.estado_cidade = estado_cidade;
     }
 
-         //Imprime o objeto que estÃ¡ na memÃ³ria
+         //Imprime o objeto que está na memória
      public String toString() {
          return "ID Cidade: " + id_cidade + " | Nome: " + nome_cidade + " | Estado: " + estado_cidade;
 }

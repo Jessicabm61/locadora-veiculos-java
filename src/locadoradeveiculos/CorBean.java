@@ -30,7 +30,7 @@ public class CorBean {
         this.nome_cor = nome_cor;
     }
 
-    //Imprime o objeto que est√° na mem√≥ria
+    //Imprime o objeto que est· na memÛria
     public String toString() {
         return ("ID_Cor: " + id_cor + " Cor: " + nome_cor);
     }

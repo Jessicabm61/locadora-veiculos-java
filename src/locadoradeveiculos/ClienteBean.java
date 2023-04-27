@@ -9,17 +9,37 @@ public class ClienteBean {
     private String rua;
     private String bairro;
     private String telefone;
-    private CidadeBean id_cidade;
+    private Integer cidade;
+    private LocacaoBean locacao;
 
-    public ClienteBean(String nome, String cpf, String email, String rua, String bairro, String telefone) {
+    public ClienteBean(String nome, String cpf, String email, String rua, String bairro, String telefone, Integer id_cidade) {
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
         this.rua = rua;
         this.bairro = bairro;
         this.telefone = telefone;
+        this.cidade = id_cidade;
     }
-
+    
+    public ClienteBean(int id_cliente, String nome, String cpf, String email, String rua, String bairro, String telefone, Integer id_cidade) {
+        this.id_cliente = id_cliente;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.email = email;
+        this.rua = rua;
+        this.bairro = bairro;
+        this.telefone = telefone;
+        this.cidade = id_cidade;
+    }
+    
+    
+    
+    public ClienteBean(int id_cliente, String nome) {
+        this.id_cliente = id_cliente;
+        this.nome = nome;
+    }
+    
     public int getId_cliente() {
         return id_cliente;
     }
@@ -76,17 +96,31 @@ public class ClienteBean {
         this.telefone = telefone;
     }
 
-    public CidadeBean getId_cidade() {
-        return id_cidade;
+    public Integer getId_cidade() {
+    	return this.cidade;
     }
 
-    public CidadeBean setId_cidade(CidadeBean id_cidade) {
-        this.id_cidade = id_cidade;
+    public void setId_cidade(Integer id_cidade) {
+        this.cidade = id_cidade;
     }
 
-    // Imprime o objeto que está na memória
+    public LocacaoBean getLocacao() {
+        return locacao;
+    }
+    
+    public void setLocacao(LocacaoBean lb) {
+    this.locacao = lb;
+    }
+    
+    // Imprime o objeto que esta na memoria
     public String toString() {
         return ("ID_Cliente: " + id_cliente + " Nome: " + nome + " CPF: " + cpf + " E-mail: " + email + " Rua: " + rua
-                + " Bairro: " + bairro + " Telefone: " + telefone + " ID_Cidade: " + id_cidade);
+                + " Bairro: " + bairro + " Telefone: " + telefone + " ID_Cidade: " + this.cidade);
     }
+    
+    public String toStringDetails() {
+    return ("Carros Locados: " + locacao.getId_carro() + " ID_Cliente: " + id_cliente + " Nome: " + nome);
+    }
+
+
 }
