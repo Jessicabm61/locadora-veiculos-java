@@ -20,6 +20,17 @@ public class ClienteBean {
         this.telefone = telefone;
         this.cidade = id_cidade;
     }
+    
+    public ClienteBean(int id_cliente, String nome, String cpf, String email, String rua, String bairro, String telefone, Integer id_cidade) {
+        this.id_cliente = id_cliente;
+    	this.nome = nome;
+        this.cpf = cpf;
+        this.email = email;
+        this.rua = rua;
+        this.bairro = bairro;
+        this.telefone = telefone;
+        this.cidade = id_cidade;
+    }
 
     public int getId_cliente() {
         return id_cliente;

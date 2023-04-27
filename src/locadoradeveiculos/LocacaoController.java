@@ -2,6 +2,7 @@ package locadoradeveiculos;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
@@ -19,7 +20,13 @@ public class LocacaoController {
         System.out.println("Insira o id do cliente: ");
         String cliente = input.nextLine();
         
-        Date date = new SimpleDateFormat("dd/MM/yyyy").parse(dt_locacao);
+        Date date = new Date();
+        
+		try {
+			date = new SimpleDateFormat("dd/MM/yyyy").parse(dt_locacao);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
         
         LocacaoBean mb = new LocacaoBean(date, Integer.parseInt(carro), Integer.parseInt(funcionario), Integer.parseInt(cliente));
         LocacaoModel.create(mb, con);

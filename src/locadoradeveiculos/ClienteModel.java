@@ -58,8 +58,8 @@ public class ClienteModel {
         String sql = "SELECT id_cliente, nome, cpf, email, rua, bairro, telefone, id_cidade FROM cliente";
         ResultSet result = st.executeQuery(sql);
         while(result.next()) {
-            ClienteBean cb = new ClienteBean(result.getString(1), result.getString(2), result.getString(3), result.getString(4), result.getString(5),
-            result.getString(6), result.getInt(7));
+            ClienteBean cb = new ClienteBean(result.getInt(1), result.getString(2), result.getString(3), result.getString(4), result.getString(5),
+            result.getString(6), result.getString(7), result.getInt(8));
             list.add(cb);
         }
         return list;
